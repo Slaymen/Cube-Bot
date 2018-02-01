@@ -134,4 +134,4 @@ client.on("message", async message => {
   }
 });
 
-client.login(process.env.YoTA3_BFWRVQgwQBKsG00h4VjfFxCZFT);
+client.login(process.env.MzI1MDU4MTgzNTk5MjI2ODkw.DVRv6Q.7mfhza8afgnCybytAI5ibkWClG8);
