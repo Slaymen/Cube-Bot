@@ -1,9 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-client.on("ready", () => {
-  console.log(Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.); 
-  client.user.setGame(+help | i am on ${client.guilds.size} servers);
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('message', msg => {
