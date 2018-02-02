@@ -62,8 +62,9 @@ client.on("message", async message => {
   if(command === "help") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Commands | +ping, +kick, +ban, +purge +CONTENTHIDDENYOUARENOTTHEOWNER, +CONTENTHIDDENYOUARENOTTHEOWNER And +CONTENTHIDDENYOUARENOTTHEOWNER");
-  }
+    const m = await message.channel.send("'''css
+Commands | +ping, +kick, +ban, +purge
+```"}
   
   if(command === "ownerbotmessage") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
