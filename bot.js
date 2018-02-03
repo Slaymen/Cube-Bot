@@ -59,6 +59,14 @@ client.on("message", async message => {
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
   
+    if(command === "9/11") {
+    // Displays A Sad Story.
+    const m = await message.channel.send(":airplane:      :tokyo_tower: ");
+    m.edit(`:airplane:  :tokyo_tower:`);
+    m.edit(`:airplane: :tokyo_tower:`);
+    m.edit(`:boom:`);
+  }
+  
   if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
