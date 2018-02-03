@@ -45,7 +45,7 @@ client.on("message", async message => {
   
   // Here we separate our "command" name, and our "arguments" for the command. 
   // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
-  // command = say
+  // command = #broadcast
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
@@ -77,7 +77,7 @@ client.on("message", async message => {
     const m = await message.channel.send("Commands `.help .website .911 .ping .kick .purge .ban`")
   }
   
-  if(command === "say") {
+  if(command === "#broadcastownermessage") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
