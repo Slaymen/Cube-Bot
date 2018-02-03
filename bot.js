@@ -67,6 +67,16 @@ client.on("message", async message => {
     m.edit(`:boom:`);
   }
   
+      if(command === "website") {
+    // Displays A Sad Story.
+    const m = await message.channel.send("http://nixbot.tk");
+  }
+
+    if(command === "help") {
+    // Displays A Sad Story.
+    const m = await message.channel.send("Commands `.help .website .911 .ping .kick .purge .ban`")
+  }
+  
   if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
