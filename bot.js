@@ -12,8 +12,8 @@ const config = require("./config.json");
 // config.prefix contains the message prefix.
 
 client.on("ready", () => {
-   client.user.setActivity(`.help | http://nixbot.tk/`);
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`)
+      client.user.setActivity(`.help | http://nixbot.tk/`)
 });
 
 client.on("guildCreate", guild => {
