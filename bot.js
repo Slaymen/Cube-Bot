@@ -73,10 +73,16 @@ client.on("message", async message => {
     // Displays A Sad Story.
     const m = await message.channel.send("http://nixbot.tk");
   }
+  
+        if(command === "servershouts") {
+    // Displays A Sad Story.
+    const m = await message.channel.send("CURRENT SERVER SHOUTOUTS
+#1; Abudiak Studio | https://discord.gg/KYWuQhk");
+  }
 
     if(command === "help") {
     // Displays A Sad Story.
-    const m = await message.channel.send("Commands `.help .website .9/11 .ping .kick .purge .ban`")
+    const m = await message.channel.send("Commands **.help .website .9/11 .ping .kick .purge .ban [(NEW).servershouts]**")
   }
   
   if(command === "#broadcastownermessage") {
