@@ -76,7 +76,7 @@ client.on("message", async message => {
   
         if(command === "servershouts") {
     // Displays A Sad Story.
-    const m = await message.channel.send("CURRENT SERVER SHOUTOUTS                                                                                                                                                                                                                               #1; Abudiak Studio | https://discord.gg/KYWuQhk");
+    const m = await message.channel.send("**CURRENT SERVER SHOUTOUTS**                                                                                                                                                                                                                             #1; Abudiak Studio | https://discord.gg/KYWuQhk");
   }
 
     if(command === "help") {
