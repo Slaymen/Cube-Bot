@@ -59,7 +59,12 @@ client.on("message", async message => {
     if(command === "9/11") {
     // Displays A Sad Story.
     const m = await message.channel.send(":airplane:      :tokyo_tower: ");
-    m.edit(`:airplane:  :tokyo_tower:`);
+    m.edit(`:airplane:            :tokyo_tower:`);
+    m.edit(`:airplane:          :tokyo_tower:`);
+    m.edit(`:airplane:        :tokyo_tower:`);
+    m.edit(`:airplane:     :tokyo_tower:`);
+    m.edit(`:airplane:    :tokyo_tower:`);
+    m.edit(`:airplane:   :tokyo_tower:`);
     m.edit(`:airplane: :tokyo_tower:`);
     m.edit(`:boom:`);
   }
