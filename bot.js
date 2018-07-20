@@ -71,6 +71,11 @@ client.on("message", async message => {
     m.edit(`:airplane: :tokyo_tower:`);
     m.edit(`:boom:`);
   }
+ 
+     if(command === "support") {
+    // Displays A Sad Story.
+    const m = await message.channel.send("https://discord.gg/pK4BWVJ");
+  }
   
       if(command === "website") {
     // Displays A Sad Story.
