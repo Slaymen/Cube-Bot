@@ -79,10 +79,8 @@ client.on("message", async message => {
     m.edit(`Checking 34%`);
     m.edit(`Checking 68%`);
     m.edit(`Checking 84%`);
-    m.edit(`Checking 92%`);
-    m.edit(`Checking 100%`);
-    m.edit(`Checking Complete Here Is Your Data; **Bots | YES,  LAG | FALSE,  Suspicious Behaviour, | N/?A**');
-  }
+    m.edit(`Checking 100% DONE |No Errors Nix Is Installed Correctly`);
+}
  
      if(command === "support") {
     // Displays A Sad Story.
