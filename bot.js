@@ -72,6 +72,18 @@ client.on("message", async message => {
     m.edit(`:boom:`);
   }
  
+     if(command === "servercheck") {
+    // Displays A Sad Story.
+    const m = await message.channel.send("Checking Server...");
+    m.edit(`Checking 10%`);
+    m.edit(`Checking 34%`);
+    m.edit(`Checking 68%`);
+    m.edit(`Checking 84%`);
+    m.edit(`Checking 92%`);
+    m.edit(`Checking 100%`);
+    m.edit(`Checking Complete Here Is Your Data; **Bots | YES,  LAG | FALSE,  Suspicious Behaviour, | N/?A**');
+  }
+ 
      if(command === "support") {
     // Displays A Sad Story.
     const m = await message.channel.send("Support Is Clossed **Should Be Back In Alpha 2.10**");
