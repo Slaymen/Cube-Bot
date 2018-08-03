@@ -74,22 +74,37 @@ client.on("message", async message => {
  
      if(command === "support") {
     // Displays A Sad Story.
-    const m = await message.channel.send("https://discord.gg/pK4BWVJ");
+    const m = await message.channel.send("Support Is Clossed **Should Be Back In Alpha 2.10**");
   }
   
       if(command === "website") {
     // Displays A Sad Story.
     const m = await message.channel.send("http://nixbot.tk");
   }
-  
-        if(command === "servershouts") {
+ 
+       if(command === "version") {
     // Displays A Sad Story.
-    const m = await message.channel.send("**CURRENT SERVER SHOUTOUTS**                                                                                                                                                                                                                             #1; Abudiak Studio | https://discord.gg/KYWuQhk");
+    const m = await message.channel.send("2.8");
+  }
+  
+        if(command === ".") {
+    // Displays A Sad Story.
+    const m = await message.channel.send("http://www.nixbot.tk");
   }
 
     if(command === "help") {
     // Displays A Sad Story.
-    const m = await message.channel.send("Commands **.help .website .9/11 .ping .kick .purge .ban [(NEW).servershouts]**")
+    const m = await message.channel.send("Commands **.help .website .9/11 .ping .kick .purge .ban .website .support .version
+                                         ".help
+                                         ".website
+                                         ".9/11
+                                         ".ping
+                                         ".kick
+                                         ".purge
+                                         ".ban
+                                         ".website"
+                                         ".support
+                                         ".version)
   }
   
   if(command === "#broadcastownermessage") {
