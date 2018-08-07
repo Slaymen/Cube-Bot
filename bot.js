@@ -13,10 +13,7 @@ const config = require("./config.json");
 
 client.on("ready", () => {
  console.log('Started BOT') // Bot Log Once Branched
-
- client.user.setStatus('Idle') // Bot Status
-  
- client.user.setGame('!help | http://nixbot.tk')
+ client.user.setActivity('n!help | nixbot.tk', { type: 'PLAYING' });
 });
 
 client.on("guildCreate", guild => {
