@@ -89,7 +89,7 @@ client.on("message", async message => {
  
       if(command === "aboutme") {
     // Displays A Sad Story.
-    const m = await message.channel.send("Hello, ${message.author.username}");
+    const m = await message.channel.send('Hello, ${message.author.username}');
   }
   
       if(command === "website") {
