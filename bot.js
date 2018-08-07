@@ -86,11 +86,6 @@ client.on("message", async message => {
     // Displays A Sad Story.
     const m = await message.channel.send("Support Is Clossed **Should Be Back In Alpha 2.10**");
   }
- 
-      if(command === "aboutme") {
-    // Displays A Sad Story.
-    const m = await message.channel.send("Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?");
-  }
   
       if(command === "website") {
     // Displays A Sad Story.
