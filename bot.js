@@ -104,7 +104,7 @@ client.on("message", async message => {
 
     if(command === "help") {
     // Displays A Sad Story.
-    const m = await message.channel.send("COMMANDS; **.help .website .9/11 .ping .kick .purge .ban .website .support .version**")
+    const m = await message.channel.send("COMMANDS; **n!help n!website n!9/11 n!ping n!kick n!purge n!ban n!website n!support n!version**")
   }
   
   if(command === "#broadcastownermessage") {
