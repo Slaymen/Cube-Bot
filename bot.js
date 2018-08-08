@@ -13,7 +13,7 @@ const config = require("./config.json");
 
 client.on("ready", () => {
  console.log('Started BOT') // Bot Log Once Branched
- client.user.setActivity('n!help | nixbot.tk', { type: 'PLAYING' });
+ client.user.setActivity('YOUTUBE', { type: 'WATCHING' });
 });
 
 client.on("guildCreate", guild => {
