@@ -13,12 +13,10 @@ const config = require("./config.json");
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
-  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`) 
+  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`Serving ${client.guilds.size} servers`)
-  //
-  client.user.setStatus('idle');
+  client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
 
 client.on("guildCreate", guild => {
@@ -30,7 +28,7 @@ client.on("guildCreate", guild => {
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setGame(`on ${client.guilds.size} servers`);
+  client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
 
 
@@ -47,7 +45,7 @@ client.on("message", async message => {
   
   // Here we separate our "command" name, and our "arguments" for the command. 
   // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
-  // command = #broadcast
+  // command = say
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
@@ -61,55 +59,7 @@ client.on("message", async message => {
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
   
-    if(command === "9/11") {
-    // Displays A Sad Story.
-    const m = await message.channel.send(":airplane:      :tokyo_tower: ");
-    m.edit(`:airplane:            :tokyo_tower:`);
-    m.edit(`:airplane:          :tokyo_tower:`);
-    m.edit(`:airplane:        :tokyo_tower:`);
-    m.edit(`:airplane:     :tokyo_tower:`);
-    m.edit(`:airplane:    :tokyo_tower:`);
-    m.edit(`:airplane:   :tokyo_tower:`);
-    m.edit(`:airplane: :tokyo_tower:`);
-    m.edit(`:boom:`);
-  }
- 
-     if(command === "servercheck") {
-    // Displays A Sad Story.
-    const m = await message.channel.send("Checking Server...");
-    m.edit(`Checking 10%`);
-    m.edit(`Checking 34%`);
-    m.edit(`Checking 68%`);
-    m.edit(`Checking 84%`);
-    m.edit(`Checking 100% DONE |No Errors Nix Is Installed Correctly`);
-}
- 
-     if(command === "support") {
-    // Displays A Sad Story.
-    const m = await message.channel.send("Support Is Clossed **Should Be Back In Alpha 2.10**");
-  }
-  
-      if(command === "website") {
-    // Displays A Sad Story.
-    const m = await message.channel.send("http://nixbot.tk");
-  }
- 
-       if(command === "version") {
-    // Displays A Sad Story.
-    const m = await message.channel.send("2.8");
-  }
-  
-        if(command === ".") {
-    // Displays A Sad Story.
-    const m = await message.channel.send("http://www.nixbot.tk");
-  }
-
-    if(command === "help") {
-    // Displays A Sad Story.
-    const m = await message.channel.send("COMMANDS; **n!help n!website n!9/11 n!ping n!kick n!purge n!ban n!website n!support n!version**")
-  }
-  
-  if(command === "#broadcastownermessage") {
+  if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
@@ -128,16 +78,17 @@ client.on("message", async message => {
     
     // Let's first check if we have a member and if we can kick them!
     // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
-    let member = message.mentions.members.first();
+    // We can also support getting the member by ID, which would be args[0]
+    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
       return message.reply("Please mention a valid member of this server");
     if(!member.kickable) 
       return message.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
     
-    // slice(1) removes the first part, which here should be the user mention!
+    // slice(1) removes the first part, which here should be the user mention or ID
+    // join(' ') takes all the various parts to make it a single string.
     let reason = args.slice(1).join(' ');
-    if(!reason)
-      return message.reply("Please indicate a reason for the kick!");
+    if(!reason) reason = "No reason provided";
     
     // Now, time for a swift kick in the nuts!
     await member.kick(reason)
@@ -159,8 +110,7 @@ client.on("message", async message => {
       return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
 
     let reason = args.slice(1).join(' ');
-    if(!reason)
-      return message.reply("Please indicate a reason for the ban!");
+    if(!reason) reason = "No reason provided";
     
     await member.ban(reason)
       .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
@@ -178,7 +128,7 @@ client.on("message", async message => {
       return message.reply("Please provide a number between 2 and 100 for the number of messages to delete");
     
     // So we get our messages, and delete them. Simple enough, right?
-    const fetched = await message.channel.fetchMessages({count: deleteCount});
+    const fetched = await message.channel.fetchMessages({limit: deleteCount});
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
