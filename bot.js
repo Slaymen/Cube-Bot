@@ -13,6 +13,8 @@ const config = require("./config.json");
 
 client.on("ready", () => {
  console.log('Started BOT') // Bot Log Once Branched
+ //
+ client.user.setStatus('dnd')
 });
 
 client.on("guildCreate", guild => {
