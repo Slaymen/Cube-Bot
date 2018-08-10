@@ -13,6 +13,9 @@ const config = require("./config.json");
 
 client.on("ready", () => {
  console.log('Started BOT') // Bot Log Once Branched
+ client.user.setActivity('YouTube', { type: 'WATCHING' })
+  .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
+  .catch(console.error);
 });
 
 client.on("guildCreate", guild => {
